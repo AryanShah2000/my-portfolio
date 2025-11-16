@@ -127,7 +127,7 @@ export default function ProfileSection() {
                             />
                           ) : slide.image === "work" ? (
                             <img 
-                              src="/CHR.JPG" 
+                              src="/CHR.jpg" 
                               alt="C.H. Robinson workplace" 
                               className="w-full h-full object-cover"
                             />
