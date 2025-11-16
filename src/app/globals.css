@@ -1,6 +1,8 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
 :root {
+  /* fallback light values */
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -14,13 +16,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
     --foreground: #ededed;
   }
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
-  background: var(--background);
+  background: var(--bg-gradient-start);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

@@ -1,0 +1,36 @@
+:root {
+  /* Background gradient */
+  --bg-gradient-start: #071428; /* deep navy */
+  --bg-gradient-end: #0b2948; /* slightly lighter navy */
+
+  /* Glass layer */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 12px;
+  --glass-radius: 12px;
+
+  /* Accents */
+  --accent-primary: #22d3ee; /* cyan */
+  --accent-secondary: #ff7a66; /* coral */
+
+  /* Text */
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-muted: rgba(255, 255, 255, 0.72);
+}
+
+/* Utility class for glassmorphism card */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  color: var(--text-primary);
+}
+
+/* Fallback when backdrop-filter is not supported */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
