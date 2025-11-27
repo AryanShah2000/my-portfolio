@@ -16,7 +16,11 @@ export const metadata: Metadata = {
   title: "Aryan Shah",
   description: "Portfolio of Aryan Shah - Senior Insights Manager, Developer, and Data Analyst",
   icons: {
-    icon: "/pfp.png",
+    icon: [
+      { url: "/pfp.png" },
+      { url: "/pfp.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/pfp.png",
   },
 };
 
