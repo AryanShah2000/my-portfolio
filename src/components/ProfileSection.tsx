@@ -8,7 +8,7 @@ export default function ProfileSection() {
   
   const slides = [
     { image: "work", text: "Senior Insights Manager @ C.H. Robinson" },
-    { image: "coding", text: "Vibe Coding Applications" },
+    { image: "coding", text: "Building Applications with AI" },
     { image: "minneapolis", text: "Living in Minneapolis" },
     { image: "travel", text: "Publishing a Weekly AI Newsletter" },
     { image: "parks", text: "Traveling to National Parks" }
