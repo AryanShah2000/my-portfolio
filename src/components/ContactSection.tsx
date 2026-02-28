@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import emailjs from '@emailjs/browser';
 import GlassCard from "./GlassCard";
-import { EMAILJS_CONFIG } from "../config/emailjs";
 
 export default function ContactSection() {
   const [contactForm, setContactForm] = useState({
@@ -18,30 +16,28 @@ export default function ContactSection() {
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setContactSubmitting(true);
-    
+
     try {
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.CONTACT_TEMPLATE_ID,
-        {
-          from_name: contactForm.name,
-          from_email: contactForm.email,
+      const response = await fetch("https://formspree.io/f/mdalvorw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: contactForm.name,
+          email: contactForm.email,
           message: contactForm.message,
-          to_email: "your-email@example.com", // Replace with your actual email
-        },
-        EMAILJS_CONFIG.USER_ID
-      );
-      
-      console.log('Contact email sent successfully:', result);
-      setContactSubmitted(true);
-      setContactForm({ name: "", email: "", message: "" });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setContactSubmitted(false), 5000);
+        }),
+      });
+
+      if (response.ok) {
+        setContactSubmitted(true);
+        setContactForm({ name: "", email: "", message: "" });
+        setTimeout(() => setContactSubmitted(false), 5000);
+      } else {
+        alert("Failed to send message. Please try again later.");
+      }
     } catch (error) {
-      console.error('Failed to send contact email:', error);
-      alert('Failed to send message. Please try again later.');
+      console.error("Failed to send message:", error);
+      alert("Failed to send message. Please try again later.");
     } finally {
       setContactSubmitting(false);
     }
