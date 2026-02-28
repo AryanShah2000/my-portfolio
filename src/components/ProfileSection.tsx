@@ -9,10 +9,9 @@ export default function ProfileSection() {
   const slides = [
     { image: "work", text: "Senior Insights Manager @ C.H. Robinson" },
     { image: "coding", text: "Vibe Coding Applications" },
-    { image: "dallas", text: "Living in Dallas" },
+    { image: "minneapolis", text: "Living in Minneapolis" },
     { image: "travel", text: "Publishing a Weekly AI Newsletter" },
-    { image: "parks", text: "Traveling to National Parks" },
-    { image: "vikings", text: "Waiting on a Vikings Super Bowl" }
+    { image: "parks", text: "Traveling to National Parks" }
   ];
 
   const nextSlide = () => {
@@ -119,10 +118,10 @@ export default function ProfileSection() {
                       <div className="p-6 text-center">
                         {/* Image - Show actual images for specific slides, placeholder for others */}
                         <div className="w-full h-80 mx-auto mb-2 bg-white/10 border-2 border-white/20 rounded-lg flex items-center justify-center overflow-hidden">
-                          {slide.image === "dallas" ? (
+                          {slide.image === "minneapolis" ? (
                             <img 
-                              src="/dallas.png" 
-                              alt="Living in Dallas" 
+                              src="/minneapolis.png" 
+                              alt="Living in Minneapolis" 
                               className="w-full h-full object-cover"
                             />
                           ) : slide.image === "work" ? (
